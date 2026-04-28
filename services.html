@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services - Awafe Medical Centre</title>
+  <meta name="description" content="Explore our complete range of dental and medical services — from teeth checkups and whitening to braces, implants, cosmetic dentistry, and primary medical care." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="services-enhancements.css" />
+  <link rel="stylesheet" href="booking-modal.css" />
+</head>
+<body class="services-page">
+
+  <!-- HEADER -->
+  <header class="header header-light" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Awafe Medical Centre home">
+        <img src="images/logo.jpg" alt="Awafe Medical Centre Logo" class="logo-img">
+      </a>
+      <nav class="nav" id="nav">
+        <a href="hospital.html" title="Home"><i class="fas fa-home"></i></a>
+        <a href="index.html#about">About</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="index.html#contact" class="btn btn-primary btn-book"><i class="far fa-calendar"></i> Book Appointment</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
+
+  <!-- SERVICES HERO -->
+  <section class="page-head">
+    <div class="page-head-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <div class="container page-head-inner">
+      <span class="pill"><i class="fas fa-tooth"></i> Our Services</span>
+      <h1>World-Class Dental &amp;<br>Medical Services</h1>
+      <p>Comprehensive dental and medical care tailored to every patient. From routine checkups to advanced cosmetic procedures — delivered with compassion and expertise.</p>
+    </div>
+    <div class="page-head-scroll"><i class="fas fa-chevron-down"></i> Scroll</div>
+  </section>
+
+  <!-- SERVICE CARDS GRID -->
+  <section class="services-grid-section">
+    <div class="container">
+      <div class="section-label">
+        <span class="pill">What We Offer</span>
+        <h2>Our Dental Services</h2>
+        <p>Advanced treatments delivered with care and precision.</p>
+      </div>
+      <div class="services-grid">
+
+        <article class="svc-card" data-num="01">
+          <div class="svc-image"><img src="images/service-checkup.jpg" alt="Teeth Checkup" loading="lazy"></div>
+          <div class="svc-overlay">
+            <h4><span class="svc-icon"><i class="fas fa-tooth"></i></span> Teeth Checkup</h4>
+            <p>Routine examinations to keep your smile healthy and detect issues early.</p>
+            <a href="#" class="learn-more">Learn More <span class="arrow"><i class="fas fa-arrow-right"></i></span></a>
+          </div>
+        </article>
+
+        <article class="svc-card" data-num="02">
+          <div class="svc-image"><img src="images/service-whitening.jpg" alt="Teeth Whitening" loading="lazy"></div>
+          <div class="svc-overlay">
+            <h4><span class="svc-icon"><i class="fas fa-lightbulb"></i></span> Teeth Whitening</h4>
+            <p>Professional whitening for a brighter, more confident smile in one visit.</p>
+            <a href="#" class="learn-more">Learn More <span class="arrow"><i class="fas fa-arrow-right"></i></span></a>
+          </div>
+        </article>
+
+        <article class="svc-card" data-num="03">
+          <div class="svc-image"><img src="images/service-braces.jpg" alt="Dental Braces" loading="lazy"></div>
+          <div class="svc-overlay">
+            <h4><span class="svc-icon"><i class="fas fa-grip-lines"></i></span> Dental Braces</h4>
+            <p>Modern orthodontic solutions to align your teeth comfortably and effectively.</p>
+            <a href="#" class="learn-more">Learn More <span class="arrow"><i class="fas fa-arrow-right"></i></span></a>
+          </div>
+        </article>
+
+        <article class="svc-card" data-num="04">
+          <div class="svc-image"><img src="images/service-implants.jpg" alt="Teeth Implants" loading="lazy"></div>
+          <div class="svc-overlay">
+            <h4><span class="svc-icon"><i class="fas fa-tooth"></i></span> Teeth Implants</h4>
+            <p>Permanent, natural-looking replacements for missing teeth.</p>
+            <a href="#" class="learn-more">Learn More <span class="arrow"><i class="fas fa-arrow-right"></i></span></a>
+          </div>
+        </article>
+
+        <article class="svc-card" data-num="05">
+          <div class="svc-image"><img src="images/service-filling.jpg" alt="Dental Filling" loading="lazy"></div>
+          <div class="svc-overlay">
+            <h4><span class="svc-icon"><i class="fas fa-stethoscope"></i></span> Dental Filling</h4>
+            <p>Tooth-coloured fillings that restore strength and look completely natural.</p>
+            <a href="#" class="learn-more">Learn More <span class="arrow"><i class="fas fa-arrow-right"></i></span></a>
+          </div>
+        </article>
+
+        <article class="svc-card" data-num="06">
+          <div class="svc-image"><img src="images/service-cosmetic.jpg" alt="Cosmetic Dentistry" loading="lazy"></div>
+          <div class="svc-overlay">
+            <h4><span class="svc-icon"><i class="fas fa-gem"></i></span> Cosmetic Dentistry</h4>
+            <p>Smile makeovers including veneers, contouring, and aesthetic enhancements.</p>
+            <a href="#" class="learn-more">Learn More <span class="arrow"><i class="fas fa-arrow-right"></i></span></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GP SERVICES SECTION -->
+  <section class="gp-services-section">
+    <div class="container">
+      <div class="section-label" style="text-align:center;margin-bottom:50px;">
+        <span class="pill"><i class="fas fa-user-md"></i> General Practitioner</span>
+        <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;margin:12px 0 10px;">GP Services</h2>
+        <p style="color:var(--muted);font-size:16px;max-width:580px;margin:0 auto;">Comprehensive primary healthcare for you and your entire family — all under one roof at Awafe Medical Centre.</p>
+      </div>
+
+      <div class="gp-img-grid">
+
+        <div class="gp-img-card">
+          <div class="gp-img-wrap"><img src="images/primary.jpeg" alt="Primary Care" loading="lazy"></div>
+          <div class="gp-img-body">
+            <div class="gp-img-icon" style="background:#eef4ff;color:#2563eb;"><i class="fas fa-stethoscope"></i></div>
+            <div>
+              <h3>Primary Care</h3>
+              <p>Acute illness, fever, infections and chronic disease management.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gp-img-card">
+          <div class="gp-img-wrap"><img src="images/Chronic.jpeg" alt="Chronic Disease" loading="lazy"></div>
+          <div class="gp-img-body">
+            <div class="gp-img-icon" style="background:#ecfeff;color:#0891b2;"><i class="fas fa-heartbeat"></i></div>
+            <div>
+              <h3>Chronic Disease Management</h3>
+              <p>Ongoing monitoring and treatment for diabetes, hypertension and asthma.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gp-img-card">
+          <div class="gp-img-wrap"><img src="images/life.jpeg" alt="Preventive Care" loading="lazy"></div>
+          <div class="gp-img-body">
+            <div class="gp-img-icon" style="background:#ecfdf5;color:#059669;"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <h3>Preventive Healthcare</h3>
+              <p>Routine check-ups, screenings and lifestyle counselling.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gp-img-card">
+          <div class="gp-img-wrap"><img src="images/women.jpeg" alt="Women's Health" loading="lazy"></div>
+          <div class="gp-img-body">
+            <div class="gp-img-icon" style="background:#fdf4ff;color:#9333ea;"><i class="fas fa-venus"></i></div>
+            <div>
+              <h3>Women's Health</h3>
+              <p>Antenatal care, hormonal management and family planning.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gp-img-card">
+          <div class="gp-img-wrap"><img src="images/pediatric-child.jpeg" alt="Pediatric Care" loading="lazy"></div>
+          <div class="gp-img-body">
+            <div class="gp-img-icon" style="background:#fff7ed;color:#ea580c;"><i class="fas fa-child"></i></div>
+            <div>
+              <h3>Pediatric Care</h3>
+              <p>Child development, illness management and immunisation guidance.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gp-img-card">
+          <div class="gp-img-wrap"><img src="images/minor.jpeg" alt="Minor Procedures" loading="lazy"></div>
+          <div class="gp-img-body">
+            <div class="gp-img-icon" style="background:#fef2f2;color:#dc2626;"><i class="fas fa-bandage"></i></div>
+            <div>
+              <h3>Minor Procedures & First Aid</h3>
+              <p>Wound care, suturing and emergency stabilisation.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPREHENSIVE MEDICAL CARE -->
+  <section class="comp-care">
+    <div class="container">
+      <span class="pill">Comprehensive Care</span>
+      <h2>Comprehensive Medical Care</h2>
+      <p class="lead">Complete healthcare services for individuals and families.</p>
+
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-icon"><i class="fas fa-stethoscope"></i></div>
+          <h4>1. Primary Care Consultations</h4>
+          <ul>
+            <li>Assessment and management of acute illnesses (e.g., infections, fever, pain)</li>
+            <li>Evaluation of chronic diseases (e.g., diabetes, hypertension, asthma)</li>
+          </ul>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon"><i class="fas fa-heart-pulse"></i></div>
+          <h4>2. Preventive Healthcare</h4>
+          <ul>
+            <li>Routine health check-ups and screenings</li>
+            <li>Lifestyle counseling (diet, exercise, smoking cessation)</li>
+          </ul>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon"><i class="fas fa-display"></i></div>
+          <h4>3. Chronic Disease Management</h4>
+          <ul>
+            <li>Ongoing monitoring and treatment adjustments</li>
+            <li>Patient education and compliance support</li>
+          </ul>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon"><i class="fas fa-bandage"></i></div>
+          <h4>4. Minor Procedures</h4>
+          <ul>
+            <li>Wound care and suturing</li>
+            <li>Incision and drainage of abscesses</li>
+          </ul>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon"><i class="fas fa-venus"></i></div>
+          <h4>5. Women's Health Services</h4>
+          <ul>
+            <li>Antenatal and postnatal care (basic level)</li>
+            <li>Menstrual and hormonal disorder management (basic level)</li>
+            <li>Family planning and contraception counseling</li>
+          </ul>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon"><i class="fas fa-child"></i></div>
+          <h4>6. Pediatric Care</h4>
+          <ul>
+            <li>Growth and development monitoring</li>
+            <li>Management of common childhood illnesses</li>
+            <li>Immunization guidance</li>
+          </ul>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon"><i class="fas fa-truck-medical"></i></div>
+          <h4>7. Emergency &amp; First Aid Care</h4>
+          <ul>
+            <li>Initial stabilization of medical emergencies</li>
+            <li>Basic life support and urgent care management</li>
+          </ul>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon"><i class="fas fa-flask"></i></div>
+          <h4>8. Diagnostic Services</h4>
+          <ul>
+            <li>Ordering and interpreting laboratory tests</li>
+            <li>Basic ECG interpretation and other point-of-care diagnostics</li>
+          </ul>
+        </div>
+
+        <div class="care-card">
+          <div class="care-icon"><i class="fas fa-users"></i></div>
+          <h4>9. Patient Education &amp; Counseling</h4>
+          <ul>
+            <li>Health awareness and disease prevention</li>
+            <li>Medication counseling and adherence support</li>
+            <li>Mental health screening and basic support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-2">
+    <div class="container testi-grid">
+      <div class="testi-left">
+        <span class="pill">Our Testimonial</span>
+        <h2>The Honest Review<br>From Our Client</h2>
+        <p>Real stories from patients who trust Awafe Medical Centre with their dental and medical care. We're proud to be part of their journey to better health.</p>
+        <a href="#" class="btn btn-primary btn-sm">See All Reviews</a>
+      </div>
+      <div class="testi-right">
+        <div class="testi-card">
+          <i class="fas fa-quote-left quote"></i>
+          <p>The team at Awafe is exceptional — friendly, professional, and incredibly skilled. My whole family comes here now and we wouldn't go anywhere else.</p>
+          <div class="testi-foot">
+            <div>
+              <strong>José Correia</strong>
+              <span>Marketing Manager</span>
+            </div>
+            <img src="images/testimonial-male.jpg" alt="José Correia">
+          </div>
+        </div>
+        <div class="testi-card">
+          <i class="fas fa-quote-left quote"></i>
+          <p>From my first checkup to my smile makeover, every visit has been smooth and stress-free. The clinic is beautiful and the doctors are wonderful.</p>
+          <div class="testi-foot">
+            <div>
+              <strong>Agathe Dufour</strong>
+              <span>Company CEO</span>
+            </div>
+            <img src="images/testimonial-female.jpg" alt="Agathe Dufour">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container cta-grid">
+      <div class="cta-text">
+        <span class="pill">The Best Services</span>
+        <h2>Dedicated to Give You<br>The Best Services</h2>
+        <p>Book your appointment today and experience compassionate, expert care from our highly trained team. Your health and smile are our highest priority.</p>
+        <a href="index.html#contact" class="btn btn-primary btn-sm">Contact Us</a>
+      </div>
+      <div class="cta-image">
+        <img src="images/cta-services.jpg" alt="Awafe dental team at work">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer footer-2">
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><span class="g">a</span><span class="b">wa</span><span class="g">fe</span></div>
+        <p class="logo-sub">medical centre</p>
+        <p class="footer-text">Quality care with compassion<br>for a healthier tomorrow.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.4-2 2-2h2V2h-3c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.5A11 11 0 0 0 3.2 17.3L2 22l4.8-1.2A11 11 0 1 0 20 3.5zM12 20a8 8 0 0 1-4-1.1l-.3-.2-2.8.7.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.5-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.5.6 2 .6 2.7.5.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 6.2s-.2-1.6-1-2.3c-.9-1-1.9-1-2.4-1C16.4 2.8 12 2.8 12 2.8s-4.4 0-7.1.1c-.5.1-1.5.1-2.4 1-.7.7-1 2.3-1 2.3S1.3 8 1.3 9.8v1.7c0 1.8.2 3.6.2 3.6s.2 1.6 1 2.3c.9 1 2.1.9 2.6 1C6.8 18.6 12 18.6 12 18.6s4.4 0 7.1-.2c.5-.1 1.5-.1 2.4-1 .7-.7 1-2.3 1-2.3s.2-1.8.2-3.6V9.8c0-1.8-.2-3.6-.2-3.6zM9.7 14.6V8.4l6.5 3.1-6.5 3.1z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="hospital.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul>
+          <li>Teeth Checkup</li>
+          <li>Dental Braces</li>
+          <li>Teeth Whitening</li>
+          <li>Root Canal</li>
+          <li>Smile Makeover</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="contact-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg> +971 9236 5337</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> @laahifproduction</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Al Fujairah, UAE</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Awafe Medical Centre. All Rights Reserved.</span>
+      <span><a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a></span>
+    </div>
+  </footer>
+
+  <!-- FLOATING ACTIONS -->
+  <div class="floating-actions">
+    <a href="https://wa.me/97192365337" class="fab whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:+97192365337" class="fab call"><i class="fas fa-phone"></i></a>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="services.js"></script>
+  <script src="booking-modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Awafe Medical Centre</title>
+  <meta name="description" content="Get in touch with Awafe Medical Centre. Book an appointment or send us a message." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="booking-modal.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Awafe Medical Centre home">
+        <img src="images/logo.jpg" alt="Awafe Medical Centre Logo" class="logo-img">
+      </a>
+      <nav class="nav" id="nav">
+        <a href="hospital.html" title="Home"><i class="fas fa-home"></i></a>
+        <a href="index.html#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <a href="#contactForm" class="btn btn-primary btn-book"><i class="far fa-calendar"></i> Book Appointment</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="images/heroo.png" alt="Awafe Medical Centre" class="hero-img" />
+    <div class="hero-overlay"></div>
+    <div class="hero-particles">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow"><i class="fas fa-map-marker-alt"></i> Al Fujairah, UAE</div>
+      <h1>Get in Touch<br>With Our Team</h1>
+      <p>We're here to help you and your family. Reach out anytime — we'd love to hear from you.</p>
+      <div class="hero-badges">
+        <span class="hero-badge"><i class="fas fa-clock"></i> Open Daily 9AM – 9PM</span>
+        <span class="hero-badge"><i class="fas fa-phone"></i> +971 9236 5337</span>
+      </div>
+    </div>
+    <div class="hero-scroll"><i class="fas fa-chevron-down"></i> Scroll</div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT: Form -->
+        <div class="col-form" id="colForm">
+          <h2>Send Us a Message</h2>
+          <p>Fill out the form and our team will get back to you within 24 hours.</p>
+
+          <form id="contactForm" class="form" novalidate>
+            <div class="row two">
+              <div class="field">
+                <label for="firstName">First name</label>
+                <input id="firstName" name="firstName" type="text" placeholder="First name" />
+                <small class="error" data-for="firstName"></small>
+              </div>
+              <div class="field">
+                <label for="lastName">Last name</label>
+                <input id="lastName" name="lastName" type="text" placeholder="Last name" />
+                <small class="error" data-for="lastName"></small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" />
+              <small class="error" data-for="email"></small>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <div class="phone-wrap">
+                <select id="country" name="country" aria-label="Country code">
+                  <option>UAE</option>
+                  <option>US</option>
+                  <option>UK</option>
+                  <option>IN</option>
+                </select>
+                <input id="phone" name="phone" type="tel" placeholder="+971 9236 5337" />
+              </div>
+              <small class="error" data-for="phone"></small>
+            </div>
+
+            <div class="field">
+              <label for="message">Your message</label>
+              <textarea id="message" name="message" rows="5" placeholder="How can we help you?"></textarea>
+              <small class="error" data-for="message"></small>
+            </div>
+
+            <label class="check">
+              <input id="agree" type="checkbox" />
+              <span>I agree to the friendly <a href="#" style="color:var(--primary)">privacy policy</a>.</span>
+            </label>
+            <small class="error" data-for="agree"></small>
+
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- RIGHT: Info -->
+        <div class="col-info" id="colInfo">
+          <h2>We'd Love to Hear From You</h2>
+          <p>Reach us through any of the channels below — we're always happy to help.</p>
+
+          <div class="info-card" id="infoEmail">
+            <div class="info-icon email"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h3>Email Us</h3>
+              <p class="sub">Our team replies within 24 hours.</p>
+              <p class="val">@laahifproduction</p>
+            </div>
+          </div>
+
+          <div class="info-card" id="infoPhone">
+            <div class="info-icon phone"><i class="fas fa-phone"></i></div>
+            <div>
+              <h3>Call Us</h3>
+              <p class="sub">Mon – Sun, 9:00 AM – 9:00 PM</p>
+              <p class="val">+971 9236 5337</p>
+            </div>
+          </div>
+
+          <div class="info-card" id="infoWa">
+            <div class="info-icon wa"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <h3>WhatsApp</h3>
+              <p class="sub">Chat with us instantly.</p>
+              <p class="val">+971 9236 5337</p>
+            </div>
+          </div>
+
+          <div class="info-card" id="infoLoc">
+            <div class="info-icon loc"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h3>Visit Our Clinic</h3>
+              <p class="sub">Come see us in person.</p>
+              <div class="address">
+                <p>Awafe Medical Centre</p>
+                <p>Al Rifa, Dibba</p>
+                <p>Al Fujairah, UAE</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hours card -->
+          <div class="hours-card" id="hoursCard">
+            <h3><i class="fas fa-clock"></i> Opening Hours</h3>
+            <div class="hours-row">
+              <span class="day">Monday – Friday</span>
+              <span class="time">9:00 AM – 9:00 PM</span>
+              <span class="badge-open">Open</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Saturday</span>
+              <span class="time">9:00 AM – 9:00 PM</span>
+              <span class="badge-open">Open</span>
+            </div>
+            <div class="hours-row">
+              <span class="day">Sunday</span>
+              <span class="time">9:00 AM – 9:00 PM</span>
+              <span class="badge-open">Open</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section class="map-section">
+    <div class="container">
+      <div class="map-label" id="mapLabel">
+        <h2>Find Us on the Map</h2>
+        <p>Awafe Medical Centre — Al Rifa, Dibba, Al Fujairah, UAE</p>
+      </div>
+      <div class="map-wrap" id="mapWrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Al%20Fujairah%2C%20UAE&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Awafe Medical Centre location">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><span class="g">a</span><span class="b">wa</span><span class="g">fe</span></div>
+        <p class="logo-sub">medical centre</p>
+        <p class="footer-text">Quality care with compassion<br>for a healthier tomorrow.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.4-2 2-2h2V2h-3c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.5A11 11 0 0 0 3.2 17.3L2 22l4.8-1.2A11 11 0 1 0 20 3.5zM12 20a8 8 0 0 1-4-1.1l-.3-.2-2.8.7.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.5-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.5.6 2 .6 2.7.5.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="hospital.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul>
+          <li>Teeth Checkup</li>
+          <li>Dental Braces</li>
+          <li>Teeth Whitening</li>
+          <li>Root Canal</li>
+          <li>Smile Makeover</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="contact-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg> +971 9236 5337</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> @laahifproduction</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Al Fujairah, UAE</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Awafe Medical Centre. All Rights Reserved.</span>
+      <span><a href="#" style="color:#64748b">Privacy Policy</a> | <a href="#" style="color:#64748b">Terms</a></span>
+    </div>
+  </footer>
+
+  <!-- FLOATING ACTIONS -->
+  <div class="floating-actions">
+    <a href="https://wa.me/97192365337" class="fab whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:+97192365337" class="fab call"><i class="fas fa-phone"></i></a>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script src="contact.js"></script>
+  <script src="booking-modal.js"></script>
+</body>
+</html>

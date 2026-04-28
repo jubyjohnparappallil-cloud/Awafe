@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Awafe Medical Centre</title>
+  <meta name="description" content="Explore our clinic gallery, facilities, patient care moments, and modern dental treatment environment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="gallery-enhancements.css" />
+  <link rel="stylesheet" href="booking-modal.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header header-light" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Awafe Medical Centre home">
+        <img src="images/logo.jpg" alt="Awafe Medical Centre Logo" class="logo-img">
+      </a>
+      <nav class="nav" id="nav">
+        <a href="hospital.html" title="Home"><i class="fas fa-home"></i></a>
+        <a href="index.html#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="index.html#contact" class="btn btn-primary btn-book"><i class="far fa-calendar"></i> Book Appointment</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="gallery-hero">
+    <div class="gallery-hero-particles">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+    <div class="container gallery-hero-inner">
+      <span class="pill"><i class="fas fa-images"></i> Our Gallery</span>
+      <h1 class="gallery-title">Inside Our Clinic &amp; Care</h1>
+      <p>Take a look at our treatment spaces, technology, and moments that reflect compassionate, world-class dental care.</p>
+      <div class="gallery-hero-stats">
+        <div class="gh-stat"><strong>13+</strong><span>Gallery Photos</span></div>
+        <div class="gh-stat"><strong>5000+</strong><span>Happy Patients</span></div>
+        <div class="gh-stat"><strong>15+</strong><span>Years of Care</span></div>
+      </div>
+    </div>
+    <div class="gallery-hero-scroll"><i class="fas fa-chevron-down"></i> Scroll</div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery-section">
+    <div class="container">
+
+      <!-- Filter tabs -->
+      <div class="gallery-filters" id="galleryFilters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="dental">Dental</button>
+        <button class="filter-btn" data-filter="care">Medical Care</button>
+        <button class="filter-btn" data-filter="cosmetic">Cosmetic</button>
+        <button class="filter-btn" data-filter="patients">Patients</button>
+      </div>
+
+      <!-- Controls -->
+      <div class="gallery-controls">
+        <span class="gallery-count" id="galleryCount">Showing all photos</span>
+        <div class="gallery-nav">
+          <button class="carousel-btn prev" id="galleryPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next" id="galleryNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+
+        <article class="gallery-card" data-cat="dental" data-title="Root Canal Treatment">
+          <img src="images/rootcanal.jpeg" alt="Root Canal Treatment" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-tooth"></i> Dental</div>
+            <h3>Root Canal Treatment</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="care" data-title="Pediatric Dental Care">
+          <img src="images/pediatric-child.jpeg" alt="Pediatric Dental Care" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-child"></i> Care</div>
+            <h3>Pediatric Dental Care</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="dental" data-title="Dental Cleaning">
+          <img src="images/toothcleaning.jpeg" alt="Dental Cleaning" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-tooth"></i> Dental</div>
+            <h3>Dental Cleaning</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="cosmetic" data-title="Tooth Whitening">
+          <img src="images/toothwhite.jpeg" alt="Tooth Whitening" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-star"></i> Cosmetic</div>
+            <h3>Tooth Whitening</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="cosmetic" data-title="Smile Makeover">
+          <img src="images/smile.jpeg" alt="Smile Makeover" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-smile"></i> Cosmetic</div>
+            <h3>Smile Makeover</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="dental" data-title="Crown & Bridges">
+          <img src="images/capping.jpeg" alt="Crown and Bridges" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-crown"></i> Dental</div>
+            <h3>Crown &amp; Bridges</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="dental" data-title="Dentures">
+          <img src="images/dentures.jpeg" alt="Dentures" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-teeth"></i> Dental</div>
+            <h3>Dentures</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="care" data-title="Primary Care Consultations">
+          <img src="images/primary.jpeg" alt="Primary Care" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-stethoscope"></i> Care</div>
+            <h3>Primary Care</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="care" data-title="Chronic Disease Management">
+          <img src="images/Chronic.jpeg" alt="Chronic Disease Management" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-heartbeat"></i> Care</div>
+            <h3>Chronic Disease Management</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="care" data-title="Lifestyle Counseling">
+          <img src="images/life.jpeg" alt="Lifestyle Counseling" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-heart"></i> Care</div>
+            <h3>Lifestyle Counseling</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="care" data-title="Minor Procedures">
+          <img src="images/minor.jpeg" alt="Minor Procedures" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-bandage"></i> Care</div>
+            <h3>Minor Procedures</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="patients" data-title="Women's Health Services">
+          <img src="images/women.jpeg" alt="Women's Health Services" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-venus"></i> Patients</div>
+            <h3>Women's Health Services</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="dental" data-title="Dental Extractions">
+          <img src="images/extractions.jpeg" alt="Dental Extractions" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-tooth"></i> Dental</div>
+            <h3>Dental Extractions</h3>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="gallery-cta">
+    <div class="container gallery-cta-inner" id="galleryCta">
+      <h2>Ready to Experience the Difference?</h2>
+      <p>Book your appointment today and join thousands of happy patients at Awafe Medical Centre.</p>
+      <div class="cta-btns">
+        <a href="index.html#contact" class="btn-white"><i class="far fa-calendar"></i> Book Appointment</a>
+        <a href="tel:+97192365337" class="btn-glass-outline"><i class="fas fa-phone"></i> Call Us Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><span class="g">a</span><span class="b">wa</span><span class="g">fe</span></div>
+        <p class="logo-sub">medical centre</p>
+        <p class="footer-text">Quality care with compassion<br>for a healthier tomorrow.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.4-2 2-2h2V2h-3c-3 0-5 1.8-5 5v3H6v4h3v8h4z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.5A11 11 0 0 0 3.2 17.3L2 22l4.8-1.2A11 11 0 1 0 20 3.5zM12 20a8 8 0 0 1-4-1.1l-.3-.2-2.8.7.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.5-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2 0-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.5.6 2 .6 2.7.5.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 6.2s-.2-1.6-1-2.3c-.9-1-1.9-1-2.4-1C16.4 2.8 12 2.8 12 2.8s-4.4 0-7.1.1c-.5.1-1.5.1-2.4 1-.7.7-1 2.3-1 2.3S1.3 8 1.3 9.8v1.7c0 1.8.2 3.6.2 3.6s.2 1.6 1 2.3c.9 1 2.1.9 2.6 1C6.8 18.6 12 18.6 12 18.6s4.4 0 7.1-.2c.5-.1 1.5-.1 2.4-1 .7-.7 1-2.3 1-2.3s.2-1.8.2-3.6V9.8c0-1.8-.2-3.6-.2-3.6zM9.7 14.6V8.4l6.5 3.1-6.5 3.1z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="hospital.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul>
+          <li>Teeth Checkup</li>
+          <li>Dental Braces</li>
+          <li>Teeth Whitening</li>
+          <li>Root Canal</li>
+          <li>Smile Makeover</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="contact-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg> +971 9236 5337</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> @laahifproduction</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Al Fujairah, UAE</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Awafe Medical Centre. All Rights Reserved.</span>
+      <span><a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a></span>
+    </div>
+  </footer>
+
+  <!-- FLOATING ACTIONS -->
+  <div class="floating-actions">
+    <a href="https://wa.me/97192365337" class="fab whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:+97192365337" class="fab call"><i class="fas fa-phone"></i></a>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lb-inner">
+      <button class="lb-close" id="lbClose" aria-label="Close"><i class="fas fa-times"></i></button>
+      <img class="lb-img" id="lbImg" src="" alt="" />
+      <p class="lb-caption" id="lbCaption"></p>
+      <div class="lb-dots" id="lbDots"></div>
+    </div>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+    <button class="lb-next" id="lbNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="gallery.js"></script>
+  <script src="booking-modal.js"></script>
+</body>
+</html>

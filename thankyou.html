@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — Awafe Medical Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; background: #fff; }
+
+    /* Hero */
+    .ty-hero {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .ty-hero img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .ty-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, rgba(8,18,48,.72) 0%, rgba(10,30,80,.5) 100%);
+    }
+    .ty-hero h1 {
+      position: relative; z-index: 2;
+      color: #fff; font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800; padding: 0 40px;
+    }
+
+    /* Card */
+    .ty-section {
+      padding: 60px 24px 80px;
+      display: flex; justify-content: center;
+      background: #f8faff;
+    }
+    .ty-card {
+      max-width: 640px; width: 100%;
+      border: 2px dashed #b6d4f5;
+      border-radius: 18px;
+      padding: 48px 40px;
+      text-align: center;
+      background: #fff;
+      animation: fadeUp .7s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .ty-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #dcfce7; color: #16a34a;
+      font-size: 13px; font-weight: 700;
+      padding: 6px 16px; border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .ty-card h2 {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 800; color: #0f172a;
+      margin: 0 0 14px;
+    }
+    .ty-card .ty-green {
+      color: #16a34a; font-size: 15px;
+      font-weight: 500; margin-bottom: 10px;
+    }
+    .ty-card .ty-sub {
+      color: #64748b; font-size: 14px;
+      margin-bottom: 32px; line-height: 1.6;
+    }
+    .ty-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 32px; border-radius: 10px;
+      background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+      color: #fff; font-weight: 700; font-size: 15px;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .ty-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,99,235,.3); }
+
+    /* Bottom strip */
+    .ty-strip {
+      background: #0a1628;
+      color: #fff;
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 14px;
+      font-size: 14px;
+    }
+    .ty-strip-left { color: rgba(255,255,255,.7); }
+    .ty-strip-right { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .ty-strip a {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: #fff; font-weight: 600; font-size: 14px;
+      text-decoration: none;
+    }
+    .ty-strip a i { color: #25d366; }
+    .ty-strip a.call i { color: #60a5fa; }
+
+    @media (max-width: 600px) {
+      .ty-card { padding: 32px 20px; }
+      .ty-strip { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header header-light" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Awafe Medical Centre home">
+        <img src="images/logo.jpg" alt="Awafe Medical Centre Logo" class="logo-img">
+      </a>
+      <nav class="nav" id="nav">
+        <a href="hospital.html" title="Home"><i class="fas fa-home"></i></a>
+        <a href="index.html#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="index.html" class="btn btn-primary btn-book"><i class="fas fa-home"></i> Back to Home</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="ty-hero">
+    <img src="images/doctor-about.png" alt="Thank You" />
+    <div class="ty-hero-overlay"></div>
+    <h1>Thank You</h1>
+  </section>
+
+  <!-- CARD -->
+  <section class="ty-section">
+    <div class="ty-card">
+      <div class="ty-badge"><i class="fas fa-check-circle"></i> Success</div>
+      <h2>Appointment Request Received</h2>
+      <p class="ty-green">Thank you for booking your appointment with Awafe Medical Centre.</p>
+      <p class="ty-sub">Our scheduling team will contact you soon to confirm your appointment date and time.</p>
+      <a href="index.html" class="ty-btn"><i class="fas fa-home"></i> Back to Home</a>
+    </div>
+  </section>
+
+  <!-- BOTTOM STRIP -->
+  <div class="ty-strip">
+    <span class="ty-strip-left">Book Appointments, Inquire, or Manage Your Care Easily — Get in Touch via</span>
+    <div class="ty-strip-right">
+      <a href="https://wa.me/97192365337"><i class="fab fa-whatsapp"></i> +971 9236 5337</a>
+      <a href="tel:+97192365337" class="call"><i class="fas fa-phone"></i> +971 9236 5337</a>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+    menuToggle?.addEventListener('click', () => nav?.classList.toggle('open'));
+    window.addEventListener('scroll', () => {
+      document.getElementById('header')?.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  </script>
+</body>
+</html>
