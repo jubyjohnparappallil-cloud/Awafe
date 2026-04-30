@@ -1,28 +1,38 @@
-// Mobile nav
-const menuToggle = document.getElementById('menuToggle');
-const nav = document.getElementById('nav');
-menuToggle?.addEventListener('click', (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  const isOpen = nav.classList.toggle('open');
-  menuToggle.classList.toggle('active', isOpen);
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-});
-nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuToggle?.classList.remove('active');
-  menuToggle?.setAttribute('aria-expanded', 'false');
-}));
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (nav?.classList.contains('open') &&
-      !menuToggle?.contains(e.target) &&
-      !nav?.contains(e.target)) {
-    nav.classList.remove('open');
-    menuToggle?.classList.remove('active');
-    menuToggle?.setAttribute('aria-expanded', 'false');
-  }
-});
+// ============================================================
+// MOBILE NAV — works on every page
+// ============================================================
+(function initNav() {
+  const menuToggle = document.getElementById('menuToggle');
+  const nav        = document.getElementById('nav');
+  if (!menuToggle || !nav) return;
+
+  // ── Hamburger toggle ──
+  menuToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const isOpen = nav.classList.toggle('open');
+    menuToggle.classList.toggle('active', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // ── Close nav when any link is tapped ──
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ── Close nav when tapping outside ──
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+      nav.classList.remove('open');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
 
 // Active nav link highlight
 (function setActiveNav() {
@@ -397,33 +407,6 @@ if (gpGrid && gpNext && gpPrev) {
   gpDots.forEach((d, i) => d.addEventListener('click', () => gpGrid.scrollTo({ left: i * getGpSlide(), behavior: 'smooth' })));
   updateGpArrows();
 }
-
-// Services dropdown — click to toggle on mobile, hover on desktop
-document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-  const trigger = dropdown.querySelector(':scope > a');
-  if (!trigger) return;
-
-  trigger.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const isMobile = window.innerWidth <= 960;
-    if (isMobile) {
-      // Toggle this dropdown, close others
-      const isOpen = dropdown.classList.contains('open');
-      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-      if (!isOpen) dropdown.classList.add('open');
-    }
-    // On desktop, hover handles it — click does nothing extra
-  });
-});
-
-// Close dropdown when clicking outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.nav-dropdown')) {
-    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-  }
-});
 
 // ── Page load left-slide animations ──
 (function() {

@@ -223,12 +223,14 @@ if (menuToggle && nav) {
     menuToggle.classList.toggle('active', isOpen);
     menuToggle.setAttribute('aria-expanded', String(isOpen));
   });
-  // Close menu when any nav link is clicked
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuToggle.classList.remove('active');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }));
+  // Close nav when any link is tapped
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
   // Close menu when clicking outside
   document.addEventListener('click', (e) => {
     if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
@@ -332,29 +334,4 @@ document.getElementById('apptBannerBtn')?.addEventListener('click', (e) => {
   e.preventDefault();
   document.getElementById('bmOverlay')?.classList.add('bm-open');
   document.body.style.overflow = 'hidden';
-});
-
-// Services dropdown — click to toggle on mobile, hover on desktop
-document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-  const trigger = dropdown.querySelector(':scope > a');
-  if (!trigger) return;
-
-  trigger.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const isMobile = window.innerWidth <= 960;
-    if (isMobile) {
-      const isOpen = dropdown.classList.contains('open');
-      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-      if (!isOpen) dropdown.classList.add('open');
-    }
-  });
-});
-
-// Close dropdown when clicking outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.nav-dropdown')) {
-    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-  }
 });

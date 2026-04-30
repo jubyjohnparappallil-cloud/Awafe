@@ -227,6 +227,9 @@
 @media (max-width: 960px) {
   .header .nav .nav-dropdown .nav-drop-menu {
     display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
   }
   .header .nav .nav-dropdown.open .nav-drop-menu {
     display: block !important;
