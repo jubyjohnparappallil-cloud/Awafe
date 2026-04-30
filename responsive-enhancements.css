@@ -180,18 +180,100 @@
 
 /* ── DENTAL / GP SERVICES PAGES ── */
 @media (max-width: 960px) {
-  /* Two-column dental layout → stack */
-  .dental-layout { grid-template-columns: 1fr !important; }
-  .dental-imgs-col {
-    position: static !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    gap: 16px !important;
+  /* Two-column dental layout → stack, image shows on top */
+  .dental-layout {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
-  .dental-imgs-col .dental-deco-card,
-  .dental-imgs-col .dental-deco-imgs { display: none !important; }
-  .dental-hero-img-wrap { display: none !important; }
-  .dental-side-cta { width: 100% !important; }
+  /* Move image column ABOVE the cards on mobile */
+  .dental-imgs-col {
+    order: -1 !important;
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+  }
+  .dental-cards-col { order: 1 !important; }
+
+  /* Show the main image */
+  .dental-hero-img-wrap {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+  .dental-main-img {
+    position: relative !important;
+    width: 100% !important;
+    height: 260px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+  .dental-main-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* Show the floating blue clinic image */
+  .dental-float-img {
+    display: block !important;
+    position: absolute !important;
+    bottom: -16px !important;
+    left: 16px !important;
+    width: 110px !important;
+    height: 110px !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    border: 3px solid #fff !important;
+    box-shadow: 0 8px 24px rgba(37,99,235,.3) !important;
+    z-index: 2 !important;
+  }
+  .dental-float-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .dental-float-label {
+    display: flex !important;
+    font-size: 9px !important;
+    padding: 4px 6px !important;
+  }
+
+  /* Show the 1000+ badge */
+  .dental-float-stat {
+    display: flex !important;
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    background: #fff !important;
+    border-radius: 12px !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+    align-items: center !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,.12) !important;
+    z-index: 2 !important;
+  }
+  .dental-float-stat i {
+    color: #2563eb !important;
+    font-size: 18px !important;
+    background: #eef4ff !important;
+    padding: 8px !important;
+    border-radius: 8px !important;
+  }
+  .dental-float-stat strong {
+    display: block !important;
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    color: #0f1b3d !important;
+  }
+  .dental-float-stat span {
+    font-size: 11px !important;
+    color: #6b7280 !important;
+  }
+
+  .dental-side-cta { width: 100% !important; margin-top: 24px !important; }
 
   /* Service cards grid */
   .services-page .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
@@ -217,6 +299,7 @@
   /* Service cards → single column */
   .services-page .services-grid { grid-template-columns: 1fr !important; }
   .gp-img-grid { grid-template-columns: 1fr !important; }
+  .gp-img-wrap { height: 180px !important; }
   .care-grid { grid-template-columns: 1fr !important; }
 
   /* Dental desc cards */

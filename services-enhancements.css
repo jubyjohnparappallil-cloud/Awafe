@@ -550,7 +550,7 @@
    ========================================================= */
 @media (max-width: 960px) {
   .services-page .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .svc-overlay { transform: translateY(0); }
+  .svc-overlay { transform: translateY(0); }  /* always show overlay on tablet/mobile */
   .care-grid { grid-template-columns: repeat(2, 1fr); }
   .testi-grid { grid-template-columns: 1fr; gap: 30px; }
   .cta-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -563,6 +563,7 @@
   .page-head h1 { font-size: clamp(28px, 8vw, 40px); }
   .gallery-hero-stats { flex-direction: column; align-items: center; gap: 10px; }
   .strip-grid { grid-template-columns: repeat(2, 1fr); }
+  .svc-card { aspect-ratio: 4/3.5; }  /* slightly taller so overlay text fits */
 }
 
 /* =========================================================
