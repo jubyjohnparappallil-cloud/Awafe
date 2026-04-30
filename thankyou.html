@@ -114,12 +114,12 @@
   <!-- HEADER -->
   <header class="header header-light" id="header">
     <div class="container header-inner">
-      <a href="index.html" class="logo" aria-label="Awafe Medical Centre home">
+      <a href="hospital.html" class="logo" aria-label="Awafe Medical Centre home">
         <img src="images/logo.png" alt="Awafe Medical Centre Logo" class="logo-img">
       </a>
       <nav class="nav" id="nav">
         <a href="hospital.html" title="Home"><i class="fas fa-home"></i></a>
-        <a href="index.html#about">About</a>
+        <a href="about.html#about">About</a>
         <div class="nav-dropdown" id="servicesDropdown">
           <a href="#">Services</a>
           <div class="nav-drop-menu">
@@ -130,7 +130,7 @@
         <a href="gallery.html">Blog</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <a href="index.html" class="btn btn-primary btn-book"><i class="fas fa-home"></i> Back to Home</a>
+      <a href="hospital.html" class="btn btn-primary btn-book"><i class="fas fa-home"></i> Back to Home</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
     </div>
   </header>
@@ -149,7 +149,7 @@
       <h2>Appointment Request Received</h2>
       <p class="ty-green">Thank you for booking your appointment with Awafe Medical Centre.</p>
       <p class="ty-sub">Our scheduling team will contact you soon to confirm your appointment date and time.</p>
-      <a href="index.html" class="ty-btn"><i class="fas fa-home"></i> Back to Home</a>
+      <a href="hospital.html" class="ty-btn"><i class="fas fa-home"></i> Back to Home</a>
     </div>
   </section>
 
@@ -162,14 +162,7 @@
     </div>
   </div>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const nav = document.getElementById('nav');
-    menuToggle?.addEventListener('click', () => nav?.classList.toggle('open'));
-    window.addEventListener('scroll', () => {
-      document.getElementById('header')?.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-  </script>
+  <script src="script.js"></script>
   <script src="translate.js"></script>
   <script src="modern-animations.js"></script>
 </body>
