@@ -3,12 +3,6 @@
    ========================================================= */
 (function () {
 
-  /* ── Mobile nav ── */
-  const menuToggle = document.getElementById('menuToggle');
-  const nav = document.getElementById('nav');
-  menuToggle?.addEventListener('click', () => nav?.classList.toggle('open'));
-  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-
   /* ── All cards ── */
   const allCards = Array.from(document.querySelectorAll('.gallery-card'));
 

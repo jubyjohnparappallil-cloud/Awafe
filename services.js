@@ -2,17 +2,6 @@
    Services Page — Scroll Animations
    ========================================================= */
 
-// Mobile nav
-const menuToggle = document.getElementById('menuToggle');
-const nav = document.getElementById('nav');
-menuToggle?.addEventListener('click', (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  const isOpen = nav.classList.toggle('open');
-  menuToggle.classList.toggle('active', isOpen);
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-});
-
 if (!('IntersectionObserver' in window)) {
   // Fallback: show everything immediately
   document.querySelectorAll('.svc-card, .care-card, .testi-card').forEach(el => {
