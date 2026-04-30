@@ -15,6 +15,14 @@ function getPoster(i) { return document.getElementById('vidPoster' + i); }
 const vidIcon = document.getElementById('vidIcon');
 const unmuteBtn = document.getElementById('vidUnmute');
 
+// ── Set full volume on all videos ──
+function setAllVolumes() {
+  for (let i = 0; i < totalSlides; i++) {
+    const v = getVideo(i);
+    if (v) v.volume = 1.0;
+  }
+}
+
 function syncMuteUi() {
   if (vidIcon) {
     vidIcon.className = isMuted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
@@ -47,9 +55,18 @@ function resetPosterAnim(i) {
 
 function tryPlayVideo(video, slideIndex) {
   if (!video) return;
-  // Ensure muted — required for iOS autoplay
-  video.muted = true;
-  video.setAttribute('muted', '');
+
+  // Always set full volume
+  video.volume = 1.0;
+
+  // Respect current mute state — only force muted if isMuted is true
+  // (don't override user's unmute choice)
+  video.muted = isMuted;
+  if (isMuted) {
+    video.setAttribute('muted', '');
+  } else {
+    video.removeAttribute('muted');
+  }
   video.setAttribute('playsinline', '');
   video.setAttribute('webkit-playsinline', '');
 
@@ -60,19 +77,24 @@ function tryPlayVideo(video, slideIndex) {
       const poster = getPoster(slideIndex);
       if (poster) poster.style.display = 'none';
     }).catch((err) => {
-      // Autoplay blocked — keep poster visible, advance via timer anyway
+      // Autoplay blocked — fall back to muted and retry
       console.warn('Video autoplay blocked:', err);
-      // On iOS, try again after a tiny delay (sometimes helps after load)
-      if (isIOS) {
-        setTimeout(() => {
-          video.play().then(() => {
-            const poster = getPoster(slideIndex);
-            if (poster) poster.style.display = 'none';
-          }).catch(() => {
-            // Poster stays visible as fallback — that's fine
-          });
-        }, 300);
-      }
+      video.muted = true;
+      isMuted = true;
+      syncMuteUi();
+      video.play().then(() => {
+        const poster = getPoster(slideIndex);
+        if (poster) poster.style.display = 'none';
+      }).catch(() => {
+        if (isIOS) {
+          setTimeout(() => {
+            video.play().then(() => {
+              const poster = getPoster(slideIndex);
+              if (poster) poster.style.display = 'none';
+            }).catch(() => {});
+          }, 300);
+        }
+      });
     });
   }
 }
@@ -91,6 +113,7 @@ function goToSlide(index) {
 
   if (video) {
     video.currentTime = 0;
+    video.volume = 1.0;
     tryPlayVideo(video, currentSlide);
   }
 
@@ -106,21 +129,21 @@ function goToSlide(index) {
 // ── Start first video ──
 const firstVideo = getVideo(0);
 resetPosterAnim(0);
+setAllVolumes();
 
 function initFirstVideo() {
   if (!firstVideo) return;
+  firstVideo.volume = 1.0;
   tryPlayVideo(firstVideo, 0);
 }
 
 // On iOS, video needs a user gesture or must wait for the page to be fully loaded
 if (isIOS) {
-  // Try on load first
   if (document.readyState === 'complete') {
     initFirstVideo();
   } else {
     window.addEventListener('load', initFirstVideo, { once: true });
   }
-  // Also try on first user interaction as fallback
   document.addEventListener('touchstart', function iosUnlock() {
     initFirstVideo();
     document.removeEventListener('touchstart', iosUnlock);
@@ -140,19 +163,22 @@ document.querySelectorAll('.vid-dot').forEach(dot => {
   dot.addEventListener('click', () => goToSlide(+dot.dataset.i));
 });
 
-// Unmute
+// ── Unmute — instant, no buffering delay ──
 if (unmuteBtn) {
   unmuteBtn.addEventListener('click', () => {
-    // iOS does not allow unmuting without a user gesture — this click IS the gesture
     isMuted = !isMuted;
     const vid = getVideo(currentSlide);
     if (vid) {
+      vid.volume = 1.0;
       vid.muted = isMuted;
       if (!isMuted) {
-        // On iOS, must call play() after unmuting to apply the change
+        // Remove the muted attribute entirely so audio plays immediately
+        vid.removeAttribute('muted');
+        // On iOS the play() call after unmuting is required
         vid.play().catch(() => {
           isMuted = true;
           vid.muted = true;
+          vid.setAttribute('muted', '');
           syncMuteUi();
         });
       }

@@ -1237,13 +1237,14 @@ body {
     box-shadow: none !important;
     border: none !important;
     border-radius: 10px !important;
-    padding: 4px 0 4px 8px !important;
+    padding: 6px 0 6px 0 !important;
     min-width: auto;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    background: #f0f6ff !important;
-    margin: 4px 0 4px 8px !important;
+    background: #eef4ff !important;
+    margin: 6px 0 6px 12px !important;
+    border-left: 3px solid var(--primary) !important;
   }
   .nav-drop-menu::before { display: none !important; }
 
@@ -1255,15 +1256,26 @@ body {
   .nav-drop-item {
     display: flex !important;
     align-items: center !important;
-    padding: 10px 14px !important;
+    padding: 13px 16px !important;
     color: #0f1b3d !important;
     font-size: 14px !important;
     font-weight: 600 !important;
     border-radius: 8px !important;
-    gap: 8px !important;
+    gap: 10px !important;
+    min-height: 48px !important;
+    background: transparent !important;
+  }
+  .nav-drop-item i {
+    color: var(--primary) !important;
+    font-size: 15px !important;
+    width: 18px !important;
+    text-align: center !important;
   }
   .nav-drop-item:hover {
     background: #dbeafe !important;
+    color: #2563eb !important;
+  }
+  .nav-drop-item:hover i {
     color: #2563eb !important;
   }
 }
