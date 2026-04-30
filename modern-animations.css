@@ -1,0 +1,756 @@
+/* =========================================================
+   Awafe Medical Centre — Ultra Modern Animations
+   Scroll effects, hover animations, micro-interactions
+   ========================================================= */
+
+/* ===== CSS Variables for Animations ===== */
+:root {
+  --anim-duration-fast: 0.2s;
+  --anim-duration-normal: 0.4s;
+  --anim-duration-slow: 0.6s;
+  --anim-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --anim-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --anim-ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===== Scroll Reveal Base Classes ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--anim-duration-slow) var(--anim-ease-expo),
+              transform var(--anim-duration-slow) var(--anim-ease-expo);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity var(--anim-duration-slow) var(--anim-ease-expo),
+              transform var(--anim-duration-slow) var(--anim-ease-expo);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity var(--anim-duration-slow) var(--anim-ease-expo),
+              transform var(--anim-duration-slow) var(--anim-ease-expo);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--anim-duration-slow) var(--anim-ease-expo),
+              transform var(--anim-duration-slow) var(--anim-ease-expo);
+}
+
+.reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-rotate {
+  opacity: 0;
+  transform: rotate(-5deg) scale(0.95);
+  transition: opacity var(--anim-duration-slow) var(--anim-ease-expo),
+              transform var(--anim-duration-slow) var(--anim-ease-expo);
+}
+
+.reveal-rotate.active {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+/* Stagger delays for children */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* ===== Floating Particles Animation ===== */
+.floating-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-particles::before,
+.floating-particles::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+  animation: floatParticle 20s ease-in-out infinite;
+}
+
+.floating-particles::before {
+  width: 400px;
+  height: 400px;
+  top: 10%;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.floating-particles::after {
+  width: 300px;
+  height: 300px;
+  bottom: 20%;
+  right: -50px;
+  animation-delay: -10s;
+}
+
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(50px, -30px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(20px, -60px) scale(0.95);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(-30px, -20px) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+/* ===== Gradient Background Animation ===== */
+.animated-gradient-bg {
+  background: linear-gradient(-45deg, #f5f9ff, #e8f4ff, #f0f9ff, #e8fff8);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Shimmer Effect ===== */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* ===== Button Hover Effects ===== */
+.btn-pulse {
+  position: relative;
+}
+
+.btn-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  z-index: -1;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-shine:hover::before {
+  left: 100%;
+}
+
+/* ===== Card 3D Tilt Effect ===== */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform var(--anim-duration-normal) var(--anim-ease-smooth);
+}
+
+.card-3d:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(10px);
+}
+
+/* ===== Glow Effects ===== */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  transition: box-shadow var(--anim-duration-fast) ease;
+}
+
+.glow-blue:hover {
+  box-shadow: 0 0 40px rgba(37, 99, 235, 0.5), 0 0 60px rgba(37, 99, 235, 0.3);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  transition: box-shadow var(--anim-duration-fast) ease;
+}
+
+.glow-green:hover {
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.5), 0 0 60px rgba(16, 185, 129, 0.3);
+}
+
+/* ===== Icon Animations ===== */
+.icon-spin {
+  transition: transform var(--anim-duration-normal) var(--anim-ease-bounce);
+}
+
+.icon-spin:hover {
+  transform: rotate(360deg) scale(1.1);
+}
+
+.icon-bounce {
+  animation: iconBounce 2s ease infinite;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.icon-pulse {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* ===== Link Underline Animation ===== */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+  transition: width var(--anim-duration-normal) var(--anim-ease-expo);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ===== Image Zoom & Overlay Effects ===== */
+.img-zoom-container {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.img-zoom-container img {
+  transition: transform var(--anim-duration-slow) var(--anim-ease-smooth);
+}
+
+.img-zoom-container:hover img {
+  transform: scale(1.1);
+}
+
+.img-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 27, 61, 0.6), transparent);
+  opacity: 0;
+  transition: opacity var(--anim-duration-normal) ease;
+}
+
+.img-overlay:hover::after {
+  opacity: 1;
+}
+
+/* ===== Text Reveal Animation ===== */
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: textReveal 0.6s var(--anim-ease-expo) forwards;
+}
+
+@keyframes textReveal {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ===== Typing Cursor Effect ===== */
+.typing-effect {
+  overflow: hidden;
+  border-right: 3px solid var(--primary);
+  white-space: nowrap;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--primary); }
+}
+
+/* ===== Parallax Scroll Effect ===== */
+.parallax {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* ===== Loading Skeleton Animation ===== */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ===== Counter Animation ===== */
+.counter {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Page Transition ===== */
+.page-transition {
+  opacity: 0;
+  animation: pageEnter 0.6s var(--anim-ease-expo) forwards;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Ripple Effect for Buttons ===== */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple span {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ===== Magnetic Button Effect ===== */
+.magnetic {
+  transition: transform var(--anim-duration-fast) ease-out;
+}
+
+/* ===== Scroll Progress Bar ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #06b6d4, #10b981);
+  z-index: 1000;
+  transition: width 0.1s ease-out;
+}
+
+/* ===== Focus Effects ===== */
+.focus-glow:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3), 0 0 0 6px rgba(37, 99, 235, 0.1);
+}
+
+/* ===== Success/Error Shake Animation ===== */
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+/* ===== Bounce In Animation ===== */
+.bounce-in {
+  animation: bounceIn 0.6s var(--anim-ease-bounce);
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== Flip Card Effect ===== */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ===== Wave Background Animation ===== */
+.wave-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-bg::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  animation: waveMove 10s linear infinite;
+}
+
+@keyframes waveMove {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1440px; }
+}
+
+/* ===== Gradient Text Animation ===== */
+.gradient-text-anim {
+  background: linear-gradient(90deg, #2563eb, #06b6d4, #10b981, #2563eb);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientText 3s ease infinite;
+}
+
+@keyframes gradientText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Rotate In Animation ===== */
+.rotate-in {
+  animation: rotateIn 0.6s var(--anim-ease-expo);
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+/* ===== Slide In From Bottom Animation ===== */
+.slide-up {
+  animation: slideUp 0.5s var(--anim-ease-expo);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Elastic Scale Animation ===== */
+.elastic-scale {
+  transition: transform var(--anim-duration-normal) var(--anim-ease-bounce);
+}
+
+.elastic-scale:hover {
+  transform: scale(1.08);
+}
+
+/* ===== Border Draw Animation ===== */
+.border-draw {
+  position: relative;
+}
+
+.border-draw::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  animation: borderDraw 2s linear infinite;
+}
+
+@keyframes borderDraw {
+  0% {
+    border-color: transparent;
+    border-top-color: var(--primary);
+  }
+  25% {
+    border-color: transparent;
+    border-right-color: var(--primary);
+  }
+  50% {
+    border-color: transparent;
+    border-bottom-color: var(--primary);
+  }
+  75% {
+    border-color: transparent;
+    border-left-color: var(--primary);
+  }
+  100% {
+    border-color: transparent;
+    border-top-color: var(--primary);
+  }
+}
+
+/* ===== Floating Animation ===== */
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* ===== Swing Animation ===== */
+.swing {
+  transform-origin: top center;
+  animation: swing 1s ease-in-out;
+}
+
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(5deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ===== Tada Animation ===== */
+.tada {
+  animation: tada 1s ease;
+}
+
+@keyframes tada {
+  0% { transform: scale(1); }
+  10%, 20% { transform: scale(0.9) rotate(-3deg); }
+  30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+  40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* ===== Heartbeat Animation ===== */
+.heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+/* ===== Notification Badge Pulse ===== */
+.badge-pulse {
+  position: relative;
+}
+
+.badge-pulse::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ===== Smooth Section Transition ===== */
+section {
+  transition: opacity 0.3s ease;
+}
+
+/* ===== Mobile Touch Feedback ===== */
+@media (hover: none) and (pointer: coarse) {
+  .btn:active,
+  .card-3d:active,
+  .icon-spin:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* ===== Reduced Motion Support ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-rotate {
+    opacity: 1;
+    transform: none;
+  }
+}

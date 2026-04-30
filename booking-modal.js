@@ -38,7 +38,7 @@
               <div class="bm-select-wrap">
                 <select id="bmDoctor" name="doctor">
                   <option value="">Select Doctor</option>
-                  <option>Dr. Shanavas</option>
+                  <option>Dr. Shahanas A</option>
                   <option>Any Available Doctor</option>
                 </select>
               </div>
@@ -145,14 +145,46 @@
   modal?.addEventListener('mouseup',   (e) => e.stopPropagation());
   modal?.addEventListener('click',     (e) => e.stopPropagation());
 
-  // ── Open on all Book Appointment buttons ──
-  document.querySelectorAll('.btn-book, [href="#contact"], [href="index.html#contact"], [href="#contactForm"]')
-    .forEach(btn => {
+  // ── Open on ALL Book Appointment buttons site-wide ──
+  function bindOpenTriggers() {
+    const selectors = [
+      '.btn-book',
+      '[href="#book"]',
+      '[href="#contact"]',
+      '[href="index.html#contact"]',
+      '[href="#contactForm"]',
+      '#bookBtn', '#bookBtn2', '#bookBtn3',
+      '#bookDentalBtn', '#bookGpBtn',
+      '#apptBannerBtn', '#bookVidBtn',
+      '.btn-aus-primary',
+      '.appt-banner-btn',
+    ];
+
+    document.querySelectorAll(selectors.join(', ')).forEach(btn => {
+      if (btn.dataset.bmBound) return;
+      btn.dataset.bmBound = '1';
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         openModal();
       });
     });
+
+    // Catch any element whose text contains "book" + "appoint" or "book now"
+    document.querySelectorAll('a, button').forEach(el => {
+      if (el.dataset.bmBound) return;
+      const text = el.textContent.trim().toLowerCase();
+      if (text.includes('book') && (text.includes('appoint') || text.includes('now'))) {
+        el.dataset.bmBound = '1';
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal();
+        });
+      }
+    });
+  }
+
+  bindOpenTriggers();
+  setTimeout(bindOpenTriggers, 800);
 
   document.getElementById('bmClose')?.addEventListener('click', closeModal);
 

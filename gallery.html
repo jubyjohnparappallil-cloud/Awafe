@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery - Awafe Medical Centre</title>
+  <title>Blog - Awafe Medical Centre</title>
   <meta name="description" content="Explore our clinic gallery, facilities, patient care moments, and modern dental treatment environment." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="gallery-enhancements.css" />
   <link rel="stylesheet" href="booking-modal.css" />
+  <link rel="stylesheet" href="responsive-enhancements.css" />
+  <link rel="stylesheet" href="modern-polish.css" />
+  <link rel="stylesheet" href="modern-animations.css" />
 </head>
 <body>
 
@@ -19,16 +22,22 @@
   <header class="header header-light" id="header">
     <div class="container header-inner">
       <a href="index.html" class="logo" aria-label="Awafe Medical Centre home">
-        <img src="images/logo.jpg" alt="Awafe Medical Centre Logo" class="logo-img">
+        <img src="images/logo.png" alt="Awafe Medical Centre Logo" class="logo-img">
       </a>
       <nav class="nav" id="nav">
         <a href="hospital.html" title="Home"><i class="fas fa-home"></i></a>
         <a href="index.html#about">About</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html" class="active">Gallery</a>
+        <div class="nav-dropdown" id="servicesDropdown">
+          <a href="#">Services</a>
+          <div class="nav-drop-menu">
+            <a href="dental-services.html" class="nav-drop-item"><i class="fas fa-tooth"></i> Dental Services</a>
+            <a href="gp-services.html" class="nav-drop-item"><i class="fas fa-stethoscope"></i> GP Services</a>
+          </div>
+        </div>
+        <a href="gallery.html" class="active">Blog</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <a href="index.html#contact" class="btn btn-primary btn-book"><i class="far fa-calendar"></i> Book Appointment</a>
+      <a href="#book" class="btn btn-primary btn-book"><i class="far fa-calendar"></i> Book Appointment</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
     </div>
   </header>
@@ -40,13 +49,13 @@
       <span></span><span></span><span></span>
     </div>
     <div class="container gallery-hero-inner">
-      <span class="pill"><i class="fas fa-images"></i> Our Gallery</span>
-      <h1 class="gallery-title">Inside Our Clinic &amp; Care</h1>
+      <span class="pill"><i class="fas fa-images"></i> Our Blog</span>
+      <h1 class="gallery-title">Our Blog</h1>
       <p>Take a look at our treatment spaces, technology, and moments that reflect compassionate, world-class dental care.</p>
       <div class="gallery-hero-stats">
-        <div class="gh-stat"><strong>13+</strong><span>Gallery Photos</span></div>
-        <div class="gh-stat"><strong>5000+</strong><span>Happy Patients</span></div>
-        <div class="gh-stat"><strong>15+</strong><span>Years of Care</span></div>
+        <div class="gh-stat"><strong>15+</strong><span>Blog Posts</span></div>
+        <div class="gh-stat"><strong>1000+</strong><span>Happy Patients</span></div>
+        <div class="gh-stat"><strong>2+</strong><span>Years of Excellence</span></div>
       </div>
     </div>
     <div class="gallery-hero-scroll"><i class="fas fa-chevron-down"></i> Scroll</div>
@@ -194,6 +203,24 @@
           </div>
         </article>
 
+        <article class="gallery-card" data-cat="patients" data-title="Dr. Shahanas A — General Dentist">
+          <img src="images/doctor-hero.png" alt="Dr. Shahanas A" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-tooth"></i> Our Team</div>
+            <h3>Dr. Shahanas A — General Dentist</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-cat="patients" data-title="Dr. Ahsana Mohamedunni — General Practitioner">
+          <img src="images/dr-ashana.jpg" alt="Dr. Ahsana Mohamedunni Mohamed Ashraf" loading="lazy">
+          <div class="gallery-zoom"><i class="fas fa-expand"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay-tag"><i class="fas fa-stethoscope"></i> Our Team</div>
+            <h3>Dr. Ahsana Mohamedunni — General Practitioner</h3>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -204,7 +231,7 @@
       <h2>Ready to Experience the Difference?</h2>
       <p>Book your appointment today and join thousands of happy patients at Awafe Medical Centre.</p>
       <div class="cta-btns">
-        <a href="index.html#contact" class="btn-white"><i class="far fa-calendar"></i> Book Appointment</a>
+        <a href="#book" class="btn-white"><i class="far fa-calendar"></i> Book Appointment</a>
         <a href="tel:+97192365337" class="btn-glass-outline"><i class="fas fa-phone"></i> Call Us Now</a>
       </div>
     </div>
@@ -229,27 +256,30 @@
         <ul>
           <li><a href="hospital.html">Home</a></li>
           <li><a href="index.html#about">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="dental-services.html">Dental Services</a></li><li><a href="gp-services.html">GP Services</a></li>
+          <li><a href="gallery.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div>
         <h4>Our Services</h4>
         <ul>
-          <li>Teeth Checkup</li>
-          <li>Dental Braces</li>
-          <li>Teeth Whitening</li>
-          <li>Root Canal</li>
-          <li>Smile Makeover</li>
+          <li><a href="dental-services.html">🦷 Dental Services</a></li>
+          <li><a href="dental-services.html">Root Canal</a></li>
+          <li><a href="dental-services.html">Teeth Whitening</a></li>
+          <li><a href="dental-services.html">Smile Makeover</a></li>
+          <li><a href="gp-services.html">🩺 GP Services</a></li>
+          <li><a href="gp-services.html">Primary Care</a></li>
+          <li><a href="gp-services.html">Women's Health</a></li>
+          <li><a href="gp-services.html">Pediatric Care</a></li>
         </ul>
       </div>
       <div>
         <h4>Contact Us</h4>
         <ul class="contact-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg> +971 9236 5337</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> @laahifproduction</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Al Fujairah, UAE</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> awafemedicalcentre@gmail.com</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Opp. Danube Show Room, Al Riffa, Dibba Fujaira</li>
         </ul>
       </div>
     </div>
@@ -280,5 +310,9 @@
   <script src="script.js"></script>
   <script src="gallery.js"></script>
   <script src="booking-modal.js"></script>
+  <script src="translate.js"></script>
+  <script src="modern-animations.js"></script>
 </body>
 </html>
+
+

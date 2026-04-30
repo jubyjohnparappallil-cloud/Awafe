@@ -28,7 +28,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Nunito', system-ui, sans-serif;
   color: var(--fg);
   background: var(--bg);
   line-height: 1.6;
@@ -43,20 +43,33 @@ ul { list-style: none; }
    HEADER
    ========================================================= */
 .header {
-  position: sticky; top: 0; z-index: 100;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 2147483647 !important;
   background: rgba(255,255,255,.95);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  transition: box-shadow .3s;
+  transition: box-shadow .3s, background-color .3s;
 }
 .header.scrolled { box-shadow: 0 4px 20px rgba(15,27,61,.08); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; gap: 24px; }
-.logo-img { height: 56px; width: auto; object-fit: contain; }
-.nav { display: flex; gap: 32px; }
+
+/* Offset body so content isn't hidden under fixed header */
+body {
+  padding-top: var(--header-offset, 80px) !important;
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px; gap: 12px; flex-wrap: nowrap;
+}
+.logo-img { height: 48px; width: auto; object-fit: contain; flex-shrink: 0; }
+.nav { display: flex; gap: 18px; flex-wrap: nowrap; align-items: center; flex: 1; }
 .nav a {
-  font-weight: 500; font-size: 15px; color: var(--fg);
+  font-weight: 500; font-size: 14px; color: var(--fg);
   position: relative; padding-bottom: 4px;
-  transition: color .2s;
+  transition: color .2s; white-space: nowrap;
 }
 .nav a::after {
   content: ''; position: absolute; left: 0; bottom: 0;
@@ -75,7 +88,7 @@ ul { list-style: none; }
 }
 .btn-primary { background: var(--primary); color: #fff; border: none; }
 .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.btn-book { padding: 8px 14px; font-size: 12px; }
+.btn-book { padding: 8px 12px; font-size: 12px; white-space: nowrap; flex-shrink: 0; }
 .menu-toggle { display: none; background: none; border: none; font-size: 22px; color: var(--primary); cursor: pointer; }
 
 /* =========================================================
@@ -508,3 +521,27 @@ ul { list-style: none; }
   .floating-actions { bottom: 12px; right: 12px; gap: 8px; }
   .fab { padding: 10px 14px; font-size: 13px; }
 }
+
+/* Force header to stay on one line */
+.header-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+  overflow: visible !important;
+  padding: 12px 24px !important;
+  gap: 16px !important;
+}
+/* Center the nav between logo and button */
+.header-inner .nav {
+  flex: 1 !important;
+  justify-content: center !important;
+  display: flex !important;
+  gap: 24px !important;
+  flex-wrap: nowrap !important;
+  min-width: 0;
+}
+.header-inner .btn-book { flex-shrink: 0; white-space: nowrap; display: inline-flex !important; position: static !important; }
+
+/* Hide Book Appointment button in header on contact page — form is already on the page */
+/* .header .btn-book { display: none !important; } */

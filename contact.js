@@ -2,14 +2,33 @@
   /* ── Mobile nav ── */
   const menuToggle = document.getElementById('menuToggle');
   const nav = document.getElementById('nav');
-  menuToggle?.addEventListener('click', () => nav?.classList.toggle('open'));
-  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+  menuToggle?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const isOpen = nav?.classList.toggle('open');
+    menuToggle.classList.toggle('active', !!isOpen);
+    menuToggle.setAttribute('aria-expanded', String(!!isOpen));
+  });
+  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuToggle?.classList.remove('active');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+  }));
 
   /* ── Header shadow on scroll ── */
   const header = document.getElementById('header');
   window.addEventListener('scroll', () => {
     header?.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
+
+  /* ── Active nav link highlight ── */
+  (function setActiveNav() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav > a, .nav-dropdown > a').forEach(link => {
+      const href = (link.getAttribute('href') || '').split('#')[0].split('/').pop();
+      if (href && href === currentPage) link.classList.add('active');
+    });
+  })();
 
   /* ── Scroll reveal helper ── */
   function revealOn(el, delay = 0) {
@@ -101,4 +120,27 @@
     });
   });
 
+})();
+
+// Services dropdown is handled below
+// Services dropdown — click to toggle on mobile, hover on desktop
+(function initDropdown() {
+  document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+    const trigger = dropdown.querySelector(':scope > a');
+    if (!trigger) return;
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (window.innerWidth <= 960) {
+        const isOpen = dropdown.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        if (!isOpen) dropdown.classList.add('open');
+      }
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown')) {
+      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    }
+  });
 })();

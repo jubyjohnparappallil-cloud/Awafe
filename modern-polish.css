@@ -1,0 +1,330 @@
+/* =========================================================
+   Awafe Modern Polish Layer
+   ========================================================= */
+:root {
+  --modern-ink: #07142f;
+  --modern-blue: #2563eb;
+  --modern-cyan: #06b6d4;
+  --modern-green: #10b981;
+  --modern-soft: #f5f9ff;
+  --modern-card: rgba(255, 255, 255, .92);
+  --modern-border: rgba(148, 163, 184, .24);
+  --modern-shadow: 0 18px 50px rgba(15, 27, 61, .12);
+  --modern-shadow-hover: 0 28px 70px rgba(37, 99, 235, .18);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(37, 99, 235, .08), transparent 28rem),
+    radial-gradient(circle at 88% 18%, rgba(16, 185, 129, .08), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 48%, #ffffff 100%) !important;
+  color: var(--modern-ink);
+}
+
+.header {
+  backdrop-filter: blur(18px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+  background: transparent !important;
+  border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, .95) !important;
+  border-bottom-color: rgba(226, 232, 240, .68) !important;
+  box-shadow: 0 14px 44px rgba(15, 27, 61, .12) !important;
+}
+
+.logo-img {
+  filter: drop-shadow(0 8px 14px rgba(15, 27, 61, .12));
+  transition: transform .25s ease, filter .25s ease;
+}
+
+.logo:hover .logo-img {
+  transform: translateY(-2px) scale(1.02);
+  filter: drop-shadow(0 12px 20px rgba(37, 99, 235, .18));
+}
+
+.nav {
+  align-items: center;
+}
+
+.nav a,
+.nav-dropdown > a {
+  transition: color .2s ease, background .2s ease, transform .2s ease !important;
+}
+
+.nav > a:hover,
+.nav-dropdown:hover > a {
+  transform: translateY(-1px);
+}
+
+.nav a::after {
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--modern-blue), var(--modern-cyan), var(--modern-green)) !important;
+}
+
+.nav-drop-menu {
+  border: 1px solid rgba(219, 231, 255, .95) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 22px 54px rgba(15, 27, 61, .16) !important;
+  overflow: hidden;
+}
+
+.nav-drop-item {
+  transition: background .2s ease, color .2s ease, padding-left .2s ease !important;
+}
+
+.btn,
+.btn-book,
+button,
+.bm-submit {
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease !important;
+}
+
+.btn-primary,
+.btn-book,
+.bm-submit {
+  background: linear-gradient(135deg, var(--modern-blue), var(--modern-cyan)) !important;
+  box-shadow: 0 12px 28px rgba(37, 99, 235, .26) !important;
+}
+
+.btn-primary:hover,
+.btn-book:hover,
+.bm-submit:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 18px 44px rgba(37, 99, 235, .34) !important;
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, .78) !important;
+  border-color: rgba(37, 99, 235, .34) !important;
+  box-shadow: 0 8px 22px rgba(15, 27, 61, .07);
+}
+
+.btn-outline:hover {
+  background: #eef6ff !important;
+  transform: translateY(-2px);
+}
+
+.hero,
+.page-head,
+.gallery-hero,
+.gp-hero,
+.services-hero,
+.vid-hero {
+  position: relative;
+}
+
+.hero::before,
+.page-head::before,
+.gallery-hero::before,
+.gp-hero::before,
+.services-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(37, 99, 235, .10), transparent 18rem),
+    radial-gradient(circle at 82% 18%, rgba(6, 182, 212, .10), transparent 16rem);
+}
+
+.hero-content,
+.page-head-inner,
+.gallery-hero-inner,
+.gp-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1,
+.page-head h1,
+.section-head h2,
+.gallery-hero h1,
+.gp-hero h1 {
+  letter-spacing: 0;
+}
+
+.section-head h2::after,
+.section-label h2::after {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--modern-blue), var(--modern-cyan), var(--modern-green));
+}
+
+.section-head.center h2::after,
+.section-label.center h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stats-bar,
+.contact-card,
+.map-card,
+.testimonial-card,
+.service-card,
+.svc-card,
+.care-card,
+.testi-card,
+.gallery-card,
+.hosp-doc-card,
+.circle-svc,
+.g-card,
+.glass-card,
+.dental-desc-card,
+.gp-card,
+.info-card {
+  border: 1px solid var(--modern-border) !important;
+  background: var(--modern-card) !important;
+  box-shadow: var(--modern-shadow) !important;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background .3s ease !important;
+}
+
+.service-card:hover,
+.svc-card:hover,
+.care-card:hover,
+.testi-card:hover,
+.gallery-card:hover,
+.hosp-doc-card:hover,
+.circle-svc:hover,
+.g-card:hover,
+.glass-card:hover,
+.dental-desc-card:hover,
+.gp-card:hover,
+.info-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(37, 99, 235, .34) !important;
+  box-shadow: var(--modern-shadow-hover) !important;
+}
+
+.service-card img,
+.svc-card img,
+.gallery-card img,
+.hosp-doc-card img,
+.circle-svc img,
+.dental-deco-card img,
+.gp-card img {
+  transition: transform .55s ease, filter .55s ease;
+}
+
+.service-card:hover img,
+.svc-card:hover img,
+.gallery-card:hover img,
+.hosp-doc-card:hover img,
+.circle-svc:hover img,
+.dental-deco-card:hover img,
+.gp-card:hover img {
+  transform: scale(1.06);
+  filter: saturate(1.08) contrast(1.02);
+}
+
+.service-icon,
+.stat i,
+.care-icon,
+.info-card i,
+.floating-card i {
+  background: linear-gradient(135deg, #eef6ff, #e8fff8) !important;
+  color: var(--modern-blue) !important;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, .12);
+}
+
+.footer {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(37, 99, 235, .16), transparent 26rem),
+    linear-gradient(135deg, #07142f 0%, #0b2454 52%, #083344 100%) !important;
+}
+
+.fab {
+  box-shadow: 0 16px 36px rgba(15, 27, 61, .24) !important;
+}
+
+.fab:hover {
+  transform: translateY(-4px) scale(1.04) !important;
+}
+
+.lang-select {
+  border-radius: 10px !important;
+  border-color: rgba(37, 99, 235, .22) !important;
+  box-shadow: 0 8px 22px rgba(15, 27, 61, .07);
+}
+
+@supports (animation-timeline: view()) {
+  section,
+  .service-card,
+  .svc-card,
+  .care-card,
+  .testi-card,
+  .gallery-card,
+  .hosp-doc-card,
+  .circle-svc,
+  .gp-card {
+    animation: modernReveal both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 28%;
+  }
+}
+
+@keyframes modernReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 960px) {
+  .header .nav {
+    background: rgba(255, 255, 255, .96) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+  }
+
+  .header .nav.open {
+    animation: mobileMenuIn .22s ease both;
+  }
+
+  .header .nav > a,
+  .header .nav-dropdown > a {
+    border: 1px solid rgba(226, 232, 240, .72) !important;
+    background: #fff !important;
+  }
+
+  .header .nav > a:hover,
+  .header .nav-dropdown > a:hover {
+    background: #eef6ff !important;
+  }
+}
+
+@keyframes mobileMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

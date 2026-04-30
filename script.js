@@ -1,11 +1,51 @@
 // Mobile nav
 const menuToggle = document.getElementById('menuToggle');
 const nav = document.getElementById('nav');
-menuToggle?.addEventListener('click', () => nav.classList.toggle('open'));
-nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+menuToggle?.addEventListener('click', (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  const isOpen = nav.classList.toggle('open');
+  menuToggle.classList.toggle('active', isOpen);
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+});
+nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menuToggle?.classList.remove('active');
+  menuToggle?.setAttribute('aria-expanded', 'false');
+}));
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (nav?.classList.contains('open') &&
+      !menuToggle?.contains(e.target) &&
+      !nav?.contains(e.target)) {
+    nav.classList.remove('open');
+    menuToggle?.classList.remove('active');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Active nav link highlight
+(function setActiveNav() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav > a, .nav-dropdown > a').forEach(link => {
+    const href = (link.getAttribute('href') || '').split('#')[0].split('/').pop();
+    if (href && href === currentPage) {
+      link.classList.add('active');
+    }
+  });
+})();
 
 // Header scroll shadow
 const headerEl = document.querySelector('.header');
+function syncHeaderOffset() {
+  if (!headerEl) return;
+  const headerHeight = Math.ceil(headerEl.getBoundingClientRect().height);
+  document.documentElement.style.setProperty('--header-offset', `${headerHeight}px`);
+}
+
+syncHeaderOffset();
+window.addEventListener('load', syncHeaderOffset);
+window.addEventListener('resize', syncHeaderOffset);
 window.addEventListener('scroll', () => {
   headerEl?.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
@@ -117,7 +157,7 @@ const testimonials = [
   {
     name: 'Oliver Jake',
     photo: 'images/patient-1.png',
-    text: "Dr. Shanavas is incredible. I had a dental emergency on a Sunday while travelling in the desert, and she promptly responded through Google Maps chat and arranged an appointment for the following day. I received an excellent solution, and I felt extremely fortunate and grateful for her care."
+    text: "Dr. Shahanas A is incredible. I had a dental emergency on a Sunday while travelling in the desert, and she promptly responded through Google Maps chat and arranged an appointment for the following day. I received an excellent solution, and I felt extremely fortunate and grateful for her care."
   },
   {
     name: 'Sarah Mitchell',
@@ -357,3 +397,142 @@ if (gpGrid && gpNext && gpPrev) {
   gpDots.forEach((d, i) => d.addEventListener('click', () => gpGrid.scrollTo({ left: i * getGpSlide(), behavior: 'smooth' })));
   updateGpArrows();
 }
+
+// Services dropdown — click to toggle on mobile, hover on desktop
+document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+  const trigger = dropdown.querySelector(':scope > a');
+  if (!trigger) return;
+
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const isMobile = window.innerWidth <= 960;
+    if (isMobile) {
+      // Toggle this dropdown, close others
+      const isOpen = dropdown.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      if (!isOpen) dropdown.classList.add('open');
+    }
+    // On desktop, hover handles it — click does nothing extra
+  });
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+
+// ── Page load left-slide animations ──
+(function() {
+  // Elements that slide in from left on load
+  const leftEls = [
+    '.hero-content',
+    '.about-us-text',
+    '.hosp-why-text',
+    '.page-head-inner',
+    '.gallery-hero-inner',
+    '.gp-hero-content',
+    '.col-form',
+    '.ty-card',
+  ];
+
+  // Elements that slide in from right on load
+  const rightEls = [
+    '.hero-image',
+    '.about-us-video',
+    '.col-info',
+  ];
+
+  // Elements that slide up on load
+  const upEls = [
+    '.stats-bar',
+    '.hosp-stats-grid',
+    '.gallery-hero-stats',
+    '.page-head-scroll',
+  ];
+
+  function applyLoadAnim(selectors, cls) {
+    selectors.forEach((sel, si) => {
+      document.querySelectorAll(sel).forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = cls === 'page-load-left' ? 'translateX(-60px)'
+                           : cls === 'page-load-right' ? 'translateX(60px)'
+                           : 'translateY(40px)';
+        el.style.transition = `opacity .7s ${(si * 0.1 + i * 0.08).toFixed(2)}s ease, transform .7s ${(si * 0.1 + i * 0.08).toFixed(2)}s ease`;
+        // Trigger after a tiny delay so transition fires
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translate(0)';
+          });
+        });
+      });
+    });
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      applyLoadAnim(leftEls,  'page-load-left');
+      applyLoadAnim(rightEls, 'page-load-right');
+      applyLoadAnim(upEls,    'page-load-up');
+    });
+  } else {
+    applyLoadAnim(leftEls,  'page-load-left');
+    applyLoadAnim(rightEls, 'page-load-right');
+    applyLoadAnim(upEls,    'page-load-up');
+  }
+})();
+
+// ── Page transition — clean curtain from left ──
+(function() {
+  // Create curtain element
+  function makeCurtain() {
+    const c = document.createElement('div');
+    c.className = 'page-curtain';
+    c.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;pointer-events:none;background:linear-gradient(135deg,#0f2d5e 0%,#1d4ed8 60%,#06b6d4 100%);transform-origin:left center;';
+    return c;
+  }
+
+  // On page load — curtain slides OUT revealing the page
+  const curtain = makeCurtain();
+  curtain.style.transform = 'scaleX(1)';
+  curtain.style.transition = 'transform .65s cubic-bezier(.77,0,.18,1)';
+  document.body.appendChild(curtain);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      curtain.style.transform = 'scaleX(0)';
+      curtain.addEventListener('transitionend', () => curtain.remove(), { once: true });
+    });
+  });
+
+  // On link click — curtain slides IN then navigates
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') ||
+        href.startsWith('tel:') || href.startsWith('mailto:') ||
+        href.startsWith('https://wa.me') || link.target === '_blank') return;
+
+    e.preventDefault();
+
+    const exit = makeCurtain();
+    exit.style.transform = 'scaleX(0)';
+    exit.style.transition = 'transform .45s cubic-bezier(.77,0,.18,1)';
+    document.body.appendChild(exit);
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        exit.style.transform = 'scaleX(1)';
+        exit.addEventListener('transitionend', () => {
+          window.location.href = href;
+        }, { once: true });
+      });
+    });
+  });
+})();

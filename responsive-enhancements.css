@@ -1,0 +1,74 @@
+/* =========================================================
+   RESPONSIVE DESIGN ENHANCEMENTS - Mobile First Approach
+   All Breakpoints: 960px, 768px, 640px, 480px, 360px
+   ========================================================= */
+
+/* Tablet (960px and below) */
+@media (max-width: 960px) {
+  /* General */
+  .container { padding: 0 20px; }
+  
+  /* Header & Navigation */
+  .header-inner { padding: 12px 16px !important; gap: 12px; }
+  .logo-img { height: 46px !important; }
+  .nav { 
+    display: none !important; 
+    position: fixed !important; 
+    top: 70px !important; 
+    left: 8px !important; 
+    right: 8px !important;
+    bottom: auto !important;
+    background: #fff !important; 
+    flex-direction: column !important; 
+    padding: 12px !important; 
+    box-shadow: 0 18px 45px rgba(15,27,61,.22) !important; 
+    z-index: 9999 !important;
+    overflow-y: auto !important;
+    border-radius: 16px !important;
+    border: 1px solid var(--border) !important;
+    max-height: calc(100vh - 90px) !important;
+    gap: 4px !important;
+  }
+  .nav.open { display: flex !important; }
+  /* Force dark text in mobile menu — overrides any white-text header rules */
+  .nav a,
+  .nav > a,
+  .nav-dropdown > a {
+    color: #0f1b3d !important;
+    padding: 12px 14px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    background: transparent !important;
+  }
+  .nav a * { color: #0f1b3d !important; }
+  .nav a:hover { background: #eef4ff !important; color: #2563eb !important; }
+  .nav a:hover * { color: #2563eb !important; }
+  .nav a::after { display: none !important; }
+  .nav-dropdown > a { display: flex !important; width: 100%; }
+  .menu-toggle { display: block !important; }
+  .btn-book { display: none !important; }
+  
+  /* Hero */
+  .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+  .hero-image { display: flex; justify-content: center; }
+  .hero-image img { max-height: 280px; }
+  .hero-content { text-align: center; }
+  .hero-actions { justify-content: center; }
+  .hero-meta { justify-content: center; }
+  .hero-blob { width: 300px; height: 300px; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  
+  /* Grids */
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .about-grid { grid-template-columns: 1fr; gap: 30px; }
+  .about-image { display: none; }
+  .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  
+  /* Forms */
+  .contact-strip { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}\n\n/* Mobile - Medium (768px and below) */\n@media (max-width: 768px) {\n  .container { padding: 0 16px; }\n  \n  /* Hero */\n  .hero-content h1 { font-size: clamp(24px, 6vw, 36px); }\n  .hero-image img { max-height: 240px; }\n  \n  /* Gallery */\n  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }\n}\n\n/* Mobile - Small (640px and below) */\n@media (max-width: 640px) {\n  /* Spacing */\n  .container { padding: 0 14px; }\n  .header-inner { padding: 10px 12px !important; }\n  \n  /* Typography */\n  .hero-content h1 { font-size: clamp(20px, 7vw, 32px); line-height: 1.2; }\n  .section-head h2 { font-size: clamp(18px, 6vw, 28px); }\n  .page-head h1 { font-size: clamp(18px, 5vw, 26px); }\n  \n  /* Header */\n  .logo-img { height: 40px !important; }\n  .nav { top: 62px !important; padding: 12px !important; }\n  .nav a { padding: 8px 6px !important; font-size: 13px !important; }\n  .menu-toggle { font-size: 18px; }\n  \n  /* Hero */\n  .hero { padding: 30px 0; }\n  .hero-blob { width: 250px; height: 250px; }\n  .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }\n  .hero-actions .btn { width: 100%; max-width: none; }\n  .badge { padding: 6px 12px; font-size: 12px; }\n  \n  /* Stats */\n  .stats-bar { grid-template-columns: 1fr; gap: 12px; padding: 12px; margin-top: 20px; }\n  \n  /* Services */\n  .services-grid { grid-template-columns: 1fr; gap: 14px; }\n  .services-page .services-grid { grid-template-columns: 1fr; }\n  .service-card h3 { font-size: 15px; padding: 20px 16px 6px; }\n  \n  /* Testimonials */\n  .testimonial-card { grid-template-columns: 1fr; text-align: center; padding: 18px; }\n  .testimonial-photo { margin: 0 auto; }\n  .testimonial-thumbs { display: none; }\n  \n  /* Contact */\n  .contact-card { padding: 16px; }\n  .contact-strip { grid-template-columns: 1fr; gap: 10px; padding: 14px 16px; }\n  .map-card { min-height: 280px; }\n  .map-card iframe { min-height: 280px; }\n  \n  /* Forms */\n  .form .field { margin-bottom: 12px; }\n  .form .field input, .form .field textarea { padding: 10px 12px; font-size: 13px; }\n  .form .field textarea { min-height: 100px; }\n  .form .btn-submit { padding: 12px 14px; font-size: 13px; }\n  \n  /* Buttons */\n  .btn { padding: 9px 16px; font-size: 13px; }\n  \n  /* Footer */\n  .footer-grid { grid-template-columns: 1fr; gap: 16px; }\n  .footer-bottom { flex-direction: column; text-align: center; gap: 6px; padding: 12px 14px; }\n  \n  /* Gallery */\n  .gallery-grid { grid-template-columns: 1fr; gap: 12px; }\n  .gallery-card { min-height: 180px; }\n  \n  /* FABs */\n  .floating-actions { bottom: 10px; right: 10px; }\n  .fab { padding: 8px 12px; font-size: 11px; }\n}\n\n/* Extra Small Mobile (480px and below) */\n@media (max-width: 480px) {\n  /* Spacing */\n  .container { padding: 0 12px; }\n  .header-inner { padding: 8px 10px !important; }\n  \n  /* Typography */\n  .hero-content h1 { font-size: clamp(18px, 6vw, 28px); }\n  \n  /* Header */\n  .logo-img { height: 36px !important; }\n  .nav { top: 58px !important; padding: 10px !important; }\n  .nav a { padding: 6px 4px !important; font-size: 12px !important; }\n  \n  /* Hero */\n  .hero { padding: 20px 0; }\n  .hero-blob { width: 200px; height: 200px; }\n  .badge { padding: 5px 10px; font-size: 11px; gap: 4px; }\n  \n  /* Form */\n  .col-form { padding: 16px; }\n  .form .field textarea { min-height: 90px; }\n  .phone-wrap { flex-direction: column; gap: 6px; }\n  .phone-wrap select { width: 100%; }\n  \n  /* Map */\n  .map-card { min-height: 250px; }\n  .map-card iframe { min-height: 250px; }\n  \n  /* Gallery */\n  .gallery-card { min-height: 160px; }\n  \n  /* FABs */\n  .fab { padding: 6px 10px; font-size: 10px; border-radius: 20px; }\n}\n\n/* Very Small Mobile (360px and below) */\n@media (max-width: 360px) {\n  .container { padding: 0 10px; }\n  .header-inner { padding: 6px 8px !important; }\n  \n  /* Logo */\n  .logo-img { height: 32px !important; }\n  \n  /* Typography */\n  .hero-content h1 { font-size: clamp(16px, 5vw, 24px); }\n  .section-head h2 { font-size: clamp(16px, 5vw, 22px); }\n  \n  /* Hero */\n  .hero { padding: 16px 0; }\n  .hero-blob { width: 180px; height: 180px; }\n  \n  /* Form */\n  .col-form { padding: 12px; }\n  .form .field textarea { min-height: 80px; }\n  \n  /* Map */\n  .map-card { min-height: 220px; }\n  .map-card iframe { min-height: 220px; }\n  \n  /* FABs */\n  .fab { padding: 5px 8px; font-size: 9px; }\n}\n\n/* =========================================================\n   IMPROVED MOBILE MENU\n   ========================================================= */\n\n/* Mobile Menu Toggle Animation */\n.menu-toggle {\n  transition: transform .3s ease, color .2s ease;\n}\n\n.menu-toggle.active {\n  transform: rotate(90deg);\n}\n\n/* Mobile Nav Improvements */\n@media (max-width: 960px) {\n  .nav {\n    animation: slideInFromTop .3s ease both;\n  }\n  \n  @keyframes slideInFromTop {\n    from {\n      opacity: 0;\n      transform: translateY(-20px);\n    }\n    to {\n      opacity: 1;\n      transform: translateY(0);\n    }\n  }\n  \n  .nav a {\n    border-left: 3px solid transparent;\n    padding-left: 12px !important;\n    transition: all .2s ease;\n  }\n  \n  .nav a:hover, .nav a.active {\n    border-left-color: var(--primary);\n    background: var(--primary-soft);\n    color: var(--primary) !important;\n  }\n}\n\n/* =========================================================\n   RESPONSIVE UTILITIES\n   ========================================================= */\n\n/* Hide on mobile */\n@media (max-width: 960px) {\n  .hide-mobile { display: none !important; }\n}\n\n/* Show only on mobile */\n@media (min-width: 961px) {\n  .show-mobile { display: none !important; }\n}\n\n/* Touch-friendly sizes for mobile */\n@media (max-width: 640px) {\n  a, button { min-height: 44px; min-width: 44px; }\n  .btn { min-height: 44px; }\n}\n\n/* Reduce animations on low-motion devices */\n@media (prefers-reduced-motion: reduce) {\n  *, *::before, *::after {\n    animation-duration: 0.01ms !important;\n    animation-iteration-count: 1 !important;\n    transition-duration: 0.01ms !important;\n  }\n}\n\n/* Print styles */\n@media print {\n  .header, .nav, .footer, .floating-actions {\n    display: none !important;\n  }\n  \n  body {\n    background: white;\n    color: black;\n  }\n}\n
